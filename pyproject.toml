@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envproof"
+version = "0.1.0"
+description = "Validate environment files against a documented template without exposing secret values."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Harshit Gupta" }]
+keywords = ["dotenv", "environment", "validation", "cli", "devtools"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+
+[project.scripts]
+envproof = "envproof.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
