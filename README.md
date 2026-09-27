@@ -44,6 +44,20 @@ logged.
 With `--strict`, undocumented keys also make validation fail. JSON output is
 suitable for CI pipelines and editor integrations.
 
+## CI integration
+
+Keep a committed `.env.ci` containing non-secret test values, then validate it
+against the documented contract before merging:
+
+```yaml
+- name: Validate environment contract
+  run: envproof --template .env.example --env .env.ci --strict
+```
+
+A complete least-privilege GitHub Actions workflow is available in
+[`examples/github-actions.yml`](examples/github-actions.yml). Never commit a
+production `.env` file merely to validate it in CI.
+
 ## Development
 
 ```bash
